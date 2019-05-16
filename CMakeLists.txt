@@ -145,6 +145,8 @@ include_directories(
 ## The recommended prefix ensures that target names across packages don't collide
 add_executable(talker src/talker.cpp)
 add_executable(listener src/listener.cpp)
+add_executable(add_two_ints_server src/add_two_ints_server.cpp)
+add_executable(add_two_ints_client src/add_two_ints_client.cpp)
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
@@ -157,13 +159,15 @@ add_executable(listener src/listener.cpp)
 #add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_dependencies(talker beginner_tutorials_generate_messages_cpp)
 add_dependencies(listener beginner_tutorials_generate_messages_cpp)
+add_dependencies(add_two_ints_server beginner_tutorials_gencpp)
+add_dependencies(add_two_ints_client beginner_tutorials_gencpp)
 ## Specify libraries to link a library or executable target against
 target_link_libraries(talker ${catkin_LIBRARIES}
 #   ${catkin_LIBRARIES}
 )
 target_link_libraries(listener ${catkin_LIBRARIES})
-
-
+target_link_libraries(add_two_ints_server ${catkin_LIBRARIES})
+target_link_libraries(add_two_ints_client ${catkin_LIBRARIES})
 #############
 ## Install ##
 #############

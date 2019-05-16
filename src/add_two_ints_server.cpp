@@ -13,9 +13,9 @@ bool add(beginner_tutorials::Addtwoints::Request &req,
 int main(int argc, char **argv)
 {
     ros::init(argc, argv, "add_two_inits_server");
-    ros::NodeHandle n;
+    ros::NodeHandle nh;
 
-    ros::ServiceServer service = n.advertiseService("add_two_ints",add);
+    ros::ServiceServer service = nh.advertiseService("add_two_ints",add);
     ROS_INFO("Ready to add two ints");
     
     ros::spin();
